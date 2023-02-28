@@ -1,4 +1,17 @@
+const quoteContainer = document.getElementById('quote-container');
+const quoteText = document.getElementById('quote');
+const authorText = document.getElementById('author');
+const twitterBtn = document.getElementById('twitter');
+const newQuoteBtn = document.getElementById('new-quote');
+
 let apiQuotes = [];
+
+// Show New Quote
+function newQuote() {
+    // Pick a random quote from apiQuotes array
+    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
+    console.log(quote);
+}
 
 // Get Quotes From API
 async function getQuotes() {
@@ -6,7 +19,7 @@ async function getQuotes() {
     try {
         const response = await fetch(apiUrl);
         apiQuotes = await response.json();
-        console.log(apiQuotes[]);
+        newQuote();
     } catch (error) {
         // Catch Error Here
     }
